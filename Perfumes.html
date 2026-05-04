@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modas Castillo | Luxury Collections</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --oro-puro: linear-gradient(90deg, #b38b4d, #f9f1dc, #b38b4d, #ffebad, #b38b4d);
+            --oro-solido: #c5a059;
+            --negro-lujo: #0a0a0a;
+            --negro-tarjeta: #141414; 
+            --gris-texto: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #ffffff 0%, #f7e8c3 50%, #d4af37 100%);
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro-lujo);
+            overflow-x: hidden;
+        }
+
+        .texto-oro {
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brilloOro 3s linear infinite;
+        }
+
+        @keyframes brilloOro {
+            to { background-position: 200% center; }
+        }
+
+        nav {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.98);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--oro-solido);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { color: var(--oro-solido); }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.8rem;
+            margin: 60px 0 40px;
+        }
+
+        .container { padding: 0 8% 100px; }
+
+        .grid-carteras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .producto-card {
+            background: var(--negro-tarjeta);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid var(--oro-solido);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(179, 139, 77, 0.3);
+            border: 1px solid #f9f1dc;
+        }
+
+        .producto-img-container {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .producto-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.9;
+        }
+
+        .producto-card:hover .producto-img-container img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .producto-info {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .producto-titulo {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .producto-desc {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .producto-precio {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .btn-pedido {
+            display: inline-block;
+            padding: 14px 20px;
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 12px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            transition: 0.5s;
+            border: none;
+            letter-spacing: 1px;
+        }
+
+        .btn-pedido:hover {
+            background-position: right center;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(249, 241, 220, 0.4);
+        }
+
+        footer {
+            background: var(--negro-lujo);
+            color: white;
+            padding: 80px 10% 40px;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="logo.png" alt="Logo" style="height: 50px; border-radius: 50%; border: 1px solid var(--oro-solido);">
+        <div class="nav-links">
+            <a href="/index.html">Inicio</a>
+            <a href="/cartera.html">Carteras</a>
+            <a href="/Joyeria.html">Joyeria</a>
+            <a href="/Perfumes.html">Perfumeria</a>
+            <a href="/contacto.html">Redes Sociales</a>
+        </div>
+    </nav>
+
+    <div class="container" id="carteras">
+        <h2 class="section-title texto-oro">Aromas Mujer</h2>
+        
+        <div class="grid-carteras">
+            
+            <!-- Cartera 1 -->
+            <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume1.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#1 whit Love </h3>
+                        <p class="producto-desc">Perfume Original de Dama Paris Hilton </p>
+                        <p class="producto-precio texto-oro">Lps.1,400</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Perfume #1" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                  <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume2.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#2 Heiress</h3>
+                        <p class="producto-desc">Perfume Original de Dama Paris Hilton</p>
+                        <p class="producto-precio texto-oro">Lps.1,400</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Perfume #2" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                         <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume3.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#3 True Love</h3>
+                        <p class="producto-desc">Perfume Original de Dama Toilette</p>
+                        <p class="producto-precio texto-oro">Lps.1,400</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el perfume #3" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+               </div>
+            </div>
+
+             <div class="container" id="carteras">
+        <h2 class="section-title texto-oro">Aroma Infantil</h2>
+        
+        <div class="grid-carteras">
+
+
+                         <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume 4.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#4 Perfume Iron Man </h3>
+                        <p class="producto-desc">Perfume Oririnal de niño </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el perfume Infantil #4" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        
+
+                          <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume5.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#5 Perfume Fromzen</h3>
+                        <p class="producto-desc">Perfume Original de niña </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el perfume Infantil #5" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                      <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume6.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#6 Perfume Ariel </h3>
+                        <p class="producto-desc">Perfume Original de niña </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el perfume Infantil #6" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+         
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume7.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#7 Perfume Cars</h3>
+                        <p class="producto-desc">Perfume Original para niño </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el perfume Infantil #7" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="perfume8.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#8 Perfime LOL</h3>
+                        <p class="producto-desc">Perfume Priginal de niña </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Perfume Infantil #8" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                    </div>
+            </div>
+
+
+    <footer id="redes">
+        <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 20px;">Redes Sociales</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/modascastillo0?_r=MW5kd2tta2t6ajg3Zg==" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@modascastillo0?_r=1&_t=ZS-9619HIoE2SK" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/50433597430" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 30px; opacity: 0.5; font-size: 0.7rem;">&copy; 2026 MODAS CASTILLO</p>
+    </footer>
+
+</body>
+</html>

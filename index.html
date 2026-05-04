@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modas Castillo | The Gold Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --oro-puro: linear-gradient(90deg, #b38b4d, #f9f1dc, #b38b4d, #ffebad, #b38b4d);
+            --oro-solido: #c5a059;
+            --negro-lujo: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #ffffff 0%, #f7e8c3 50%, #d4af37 100%);
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro-lujo);
+            overflow-x: hidden;
+        }
+
+        /* --- DORADO ANIMADO --- */
+        .texto-oro {
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brilloOro 3s linear infinite;
+        }
+
+        @keyframes brilloOro {
+            to { background-position: 200% center; }
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.98);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--oro-solido);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.7rem;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { color: var(--oro-solido); text-shadow: 0 0 8px var(--oro-solido); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-circular {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px double var(--oro-solido);
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 50px rgba(197, 160, 89, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .main-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        /* --- SECCIONES --- */
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            margin: 80px 0 40px;
+        }
+
+        .container { padding: 0 10% 100px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* --- TARJETAS --- */
+        .card {
+            position: relative;
+            background: var(--negro-lujo);
+            border-radius: 40px 0 40px 0;
+            overflow: hidden;
+            border: 2px solid var(--oro-solido);
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 15px 15px 0px var(--oro-solido);
+        }
+
+        .card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: 0.5s;
+        }
+
+        .card:hover img { opacity: 1; }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            text-align: center;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: 0.5s;
+        }
+
+        .btn-gold:hover { background-position: right center; transform: translateY(-3px); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--negro-lujo);
+            color: white;
+            padding: 100px 10% 40px;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .social-icons a {
+            color: var(--oro-solido);
+            font-size: 2.5rem;
+            margin: 0 20px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover { color: white; transform: scale(1.2); }
+
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* escritorio */
+  gap: 16px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .contenedor-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Teléfono */
+@media (max-width: 480px) {
+  .contenedor-tarjetas {
+    grid-template-columns: repeat(2, 1fr); /* 👈 aquí forzamos 2 */
+  }
+}
+
+.contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  width: 33.33%; /* escritorio */
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .tarjeta {
+    width: 50%;
+  }
+}
+
+/* Teléfono */
+@media (max-width: 480px) {
+  .tarjeta {
+    width: 50%; /* 👈 2 tarjetas */
+  }
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="logo.png" alt="Logo" style="height: 55px; border-radius: 50%; border: 1px solid var(--oro-solido);">
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="cartera.html">Carteras</a>
+            <a href="Joyeria.html">Joyeria</a>
+            <a href="Perfumes.html">Perfumeria</a>
+            <a href="contacto.html">Redes Sociales</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="logo-aura">
+            <img src="logo.png" alt="Modas Castillo" class="logo-circular">
+        </div>
+        <h1 class="main-title">
+            <span style="color: var(--negro-lujo);">Modas</span> 
+            <span class="texto-oro">Castillo</span>
+        </h1>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: #8a6d3b;">Calidad que se nota</p>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: #8a6d3b;">Tienda Online Hondureña</p>
+                        <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: #8a6d3b;">Envios a Nivel Nacional en Honduras</p>
+                                <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: #8a6d3b;">Ubicados en Danli,El Paraiso</p>
+
+
+
+        
+    </section>
+
+    <h2 class="section-title texto-oro">Nuestras Categorías</h2>
+
+    <div class="container">
+        <div class="grid">
+            
+            <!-- CARTERAS -->
+            <div class="card" id="carteras">
+                <img src="https://i.pinimg.com/736x/19/03/c3/1903c356d441887803b845e5e5f714cd.jpg" alt="Carteras">
+                <div class="card-overlay">
+                    <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 15px;">Carteras</h2>
+                    <a href="cartera.html" class="btn-gold">Ver Catalogo</a>
+                </div>
+            </div>
+
+            <!-- JOYERIA -->
+            <div class="card" id="joyeria">
+                <img src="https://i.pinimg.com/736x/4f/d1/14/4fd114f36131d87bd026d413dc4a0441.jpg" alt="Joyería">
+                <div class="card-overlay">
+                    <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 15px;">Joyería</h2>
+                    <a href="Joyeria.html" class="btn-gold">Ver Catalogo</a>
+                </div>
+            </div>
+
+            <!-- PERFUMERIA -->
+            <div class="card" id="perfumeria">
+                <img src="https://i.pinimg.com/736x/91/67/fa/9167faf8aa792f3a01f14c9951191dbe.jpg" alt="Perfumería">
+                <div class="card-overlay">
+                    <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 15px;">Perfumería</h2>
+                    <a href="Perfumes.html" class="btn-gold">Ver Catalogo </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+ 
+
+    <footer id="redes">
+        <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 20px;">Redes Sociales</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/modascastillo0?_r=MW5kd2tta2t6ajg3Zg==" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@modascastillo0?_r=1&_t=ZS-9619HIoE2SK" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/50433597430" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 30px; opacity: 0.5; font-size: 0.7rem;">&copy; 2026 MODAS CASTILLO</p>
+    </footer>
+
+    
+
+</body>
+</html>

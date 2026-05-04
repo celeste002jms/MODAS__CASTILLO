@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modas Castillo | Luxury Collections</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --oro-puro: linear-gradient(90deg, #b38b4d, #f9f1dc, #b38b4d, #ffebad, #b38b4d);
+            --oro-solido: #c5a059;
+            --negro-lujo: #0a0a0a;
+            --negro-tarjeta: #141414; 
+            --gris-texto: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #ffffff 0%, #f7e8c3 50%, #d4af37 100%);
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro-lujo);
+            overflow-x: hidden;
+        }
+
+        .texto-oro {
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brilloOro 3s linear infinite;
+        }
+
+        @keyframes brilloOro {
+            to { background-position: 200% center; }
+        }
+
+        nav {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.98);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--oro-solido);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { color: var(--oro-solido); }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.8rem;
+            margin: 60px 0 40px;
+        }
+
+        .container { padding: 0 8% 100px; }
+
+        .grid-carteras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .producto-card {
+            background: var(--negro-tarjeta);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid var(--oro-solido);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(179, 139, 77, 0.3);
+            border: 1px solid #f9f1dc;
+        }
+
+        .producto-img-container {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .producto-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.9;
+        }
+
+        .producto-card:hover .producto-img-container img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .producto-info {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .producto-titulo {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .producto-desc {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .producto-precio {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .btn-pedido {
+            display: inline-block;
+            padding: 14px 20px;
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 12px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            transition: 0.5s;
+            border: none;
+            letter-spacing: 1px;
+        }
+
+        .btn-pedido:hover {
+            background-position: right center;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(249, 241, 220, 0.4);
+        }
+
+        footer {
+            background: var(--negro-lujo);
+            color: white;
+            padding: 80px 10% 40px;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="logo.png" alt="Logo" style="height: 50px; border-radius: 50%; border: 1px solid var(--oro-solido);">
+        <div class="nav-links">
+            <a href="/index.html">Inicio</a>
+            <a href="/cartera.html">Carteras</a>
+            <a href="/Joyeria.html">Joyeria</a>
+            <a href="/Perfumes.html">Perfumeria</a>
+            <a href="/contacto.html">Redes Sociales</a>
+        </div>
+    </nav>
+
+    <div class="container" id="carteras">
+        <h2 class="section-title texto-oro">Diseños Joyeria Acero Inoxidable </h2>
+        
+        <div class="grid-carteras">
+            
+            <!-- Cartera 1 -->
+            <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria1.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#1 Aretes Arcoiris </h3>
+                        <p class="producto-desc">Aretes de Acero Inoxidable diseño redondo </p>
+                        <p class="producto-precio texto-oro">Lps.200</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #1" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                  <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria2.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#2 Aretes Gota</h3>
+                        <p class="producto-desc">Aretes acero inoxidable diseño rectangulo y gota </p>
+                        <p class="producto-precio texto-oro">Lps.220</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #2" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                         <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria3.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#3 Cadena Espiral</h3>
+                        <p class="producto-desc">Cadena Acero inoxidable Estilo verano  </p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la cadena #3" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                          <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria4.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#4 Aretes Corazon</h3>
+                        <p class="producto-desc">Aretes Acero inoxidable diseño tulipan rosa </p>
+                        <p class="producto-precio texto-oro">Lps.150</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #4" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+
+            
+                        <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria5.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#5 Aretes Rojo Vino</h3>
+                        <p class="producto-desc">Aretes Elegantes Acero inoxidable  </p>
+                        <p class="producto-precio texto-oro">Lps.150</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #5" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                         <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria6.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#6 Aretes Flor</h3>
+                        <p class="producto-desc">Aretes  Acero inoxidable Diseño Flor colorido  </p>
+                        <p class="producto-precio texto-oro">Lps.170</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #6" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            
+                          <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria9.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#9 Anillo Mariposa</h3>
+                        <p class="producto-desc">Anillo de Acero inoxidable Diseño de mariposa</p>
+                        <p class="producto-precio texto-oro">Lps.150</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Anillo #9" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+             
+
+            
+                  <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria15.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#15 Pulsera Corazon Rojo</h3>
+                        <p class="producto-desc">Pulsera de Acero Inoxidable Diseño de Corazones </p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera  #15" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                  
+                  <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria16.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#16 Pulsera Corazon Rosa</h3>
+                        <p class="producto-desc">Pulsera de Acero Inoxidable Diseño de Corazones </p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera  #16" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria17.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#17 Pulsera Concha Rosa</h3>
+                        <p class="producto-desc">Pulsera de Verano Acero Inoxidable Diseño de Concha </p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera  #17" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+   <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria18.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#18 Pulsera Concha Celeste</h3>
+                        <p class="producto-desc">Pulsera de Verano Acero Inoxidable Diseño de Concha </p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera  #18" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria19.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#19 Pulsera Lisa Rosa</h3>
+                        <p class="producto-desc">Pulsera de  Acero Inoxidable Diseño Liso</p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera  #19" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria20.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#20 Pulsera Corazon Azul</h3>
+                        <p class="producto-desc">Pulsera de  Acero Inoxidable Diseño de Corazones</p>
+                        <p class="producto-precio texto-oro">Lps.300</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera  #20" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+              <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria21.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#21 Aretes Doble Corazon</h3>
+                        <p class="producto-desc">Aretes Acero Inoxidable Rosa</p>
+                        <p class="producto-precio texto-oro">Lps.200</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa Los Aretes  #21" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+              <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria22.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#22 Aretes Perla Grandes</h3>
+                        <p class="producto-desc">Aretes de  Acero Inoxidable Diseño Redondo Elegante</p>
+                        <p class="producto-precio texto-oro">Lps.170</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #22" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+              <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria23.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#23 Argollas Espiral</h3>
+                        <p class="producto-desc">Argollas Acero Inoxidable Diseño en Espiral</p>
+                        <p class="producto-precio texto-oro">Lps.200</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa las Argollas  #23" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                 <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria24.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#24 Argollas Clasicas</h3>
+                        <p class="producto-desc">Argollas Acero Inoxidable Diseño Clasico</p>
+                        <p class="producto-precio texto-oro">Lps.200</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa las Argollas  #24" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                 <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria25.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#25 Aretes Corazon Chongo</h3>
+                        <p class="producto-desc">Aretes Acero Inoxidable Estilo Coquette</p>
+                        <p class="producto-precio texto-oro">Lps.180</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes  #25" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria29.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#29 Conjunto Perla </h3>
+                        <p class="producto-desc">Conjunto Acero Inoxidable Diseño Flor en Perla Estilo Elegate</p>
+                        <p class="producto-precio texto-oro">Lps.350</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Conjunto Acero  #29" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+              <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria31.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#31 Cadena Flor</h3>
+                        <p class="producto-desc">Cadena Acero Inoxidable Diseño Flor Blanco Estilo Verano</p>
+                        <p class="producto-precio texto-oro">Lps.250</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la Cadena  #31" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                       <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria32.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#32 Aretes Doble Corazon</h3>
+                        <p class="producto-desc">Aretes Acero Inoxidable Diseño Corazon Estilo Elegante</p>
+                        <p class="producto-precio texto-oro">Lps.200</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes  #32" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                       <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria37.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#37 Argolla Gruesa</h3>
+                        <p class="producto-desc">Argolla Acero Inoxidable Diseño Moderno</p>
+                        <p class="producto-precio texto-oro">Lps.150</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa las Argollas  #37" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                       <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria38.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#38 Aritos Flor</h3>
+                        <p class="producto-desc">Aritos de Acero Inoxidable </p>
+                        <p class="producto-precio texto-oro">Lps.150</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aritos  #38" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                </div>
+            </div>
+
+                <div class="container" id="carteras">
+        <h2 class="section-title texto-oro">Diseños Joyeria de Plata </h2>
+        
+        <div class="grid-carteras">
+
+                 <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria11.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#11 Conjunto Cadena y Aritos Cuadrado</h3>
+                        <p class="producto-desc">Conjunto de Acero Elegante con un Diseño Cuadrado  Detalle amarillo</p>
+                        <p class="producto-precio texto-oro">Lps.1,500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el conjunto plata #11" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+
+                         <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria7.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#7 Aretes Cereza</h3>
+                        <p class="producto-desc">Aretes De Plata Diseño de Cereza</p>
+                        <p class="producto-precio texto-oro">Lps.800</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #7" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                          <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria8.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#8 Aretes Libelula</h3>
+                        <p class="producto-desc">Aretes De Plata Diseño Libelila </p>
+                        <p class="producto-precio texto-oro">Lps.600</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa los Aretes #8" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                      <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria10.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#10 Pulsera mini perrito</h3>
+                        <p class="producto-desc">Pulcera de plata detalles con piedriyas y figura de perrito </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la pulsera #10" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+         
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria12.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#12 Conjunto Cadena y Aritos redondo</h3>
+                        <p class="producto-desc">Conjunto de plata Elegante con un Diseño Redondo detalle en negro </p>
+                        <p class="producto-precio texto-oro">Lps.1,500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el conjunto plata  #12" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria13.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#12 Conjunto Cadena y Aritos redondo</h3>
+                        <p class="producto-desc">Conjunto de plata Elegante con un Diseño Redondo detalle en Verde Olivo </p>
+                        <p class="producto-precio texto-oro">Lps.1,500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el conjunto plata  #13" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            
+               <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria14.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#14 Conjunto Cadena y Aritos Diamante</h3>
+                        <p class="producto-desc">Conjunto de plata Elegante con un Diseño Diamante detalle en Verde Olivo</p>
+                        <p class="producto-precio texto-oro">Lps.1,500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el conjunto plata  #14" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                 <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria26.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#26 Conjunto Verde Olivo</h3>
+                        <p class="producto-desc">Conjunto de Plata Diseño Vertical Estilo Elegante</p>
+                        <p class="producto-precio texto-oro">Lps.620</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Conjunto Plata  #26" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                 <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria27.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#27 Anillo </h3>
+                        <p class="producto-desc">Anillo de Plata Diseño de Cadena </p>
+                        <p class="producto-precio texto-oro">Lps.520</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Anillo  #27" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+             <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria28.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#28 Anillo </h3>
+                        <p class="producto-desc">Anillo de Plata </p>
+                        <p class="producto-precio texto-oro">Lps.450</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Anillo  #28" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria30.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#30 Conjunto Cisne</h3>
+                        <p class="producto-desc">Conjunto de Plata Diseño Cisne Verde Olivo </p>
+                        <p class="producto-precio texto-oro">Lps.1,500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Conjunto Plata  #30" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            
+          <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria33.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#33 Conjunto Cruz</h3>
+                        <p class="producto-desc">Conjunto de Plata Diseño Cruz  </p>
+                        <p class="producto-precio texto-oro">Lps.1,500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Conjunto Plata  #33" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria34.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#34 Pulsera Mariposa</h3>
+                        <p class="producto-desc">Pulsera de Plata Diseño Mariposa </p>
+                        <p class="producto-precio texto-oro">Lps.620</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la Pulsera #34" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+    
+    <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria35.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#35 Dijen Libelula</h3>
+                        <p class="producto-desc">Dijen de Plata Diseño de Libelula </p>
+                        <p class="producto-precio texto-oro">Lps.400</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa el Dijen #35" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria36.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#36 Pulcera Rosa </h3>
+                        <p class="producto-desc">Pilsera de Plata Diseño Redondo Estilo Elegante </p>
+                        <p class="producto-precio texto-oro">Lps.800</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la Pulsera  #36" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                  <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria39.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#39 Argolla </h3>
+                        <p class="producto-desc">Argolla de Plata  Elegante </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la Argolla  #39" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                   <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria40.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#40 Argolla </h3>
+                        <p class="producto-desc">Argolla de Plata  Elegante </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la Argolla  #40" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+        
+            
+                   <div class="producto-card">
+                <div class="producto-img-container">
+                    <img src="joyeria41.jpeg" alt="Cartera Real">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <h3 class="producto-titulo texto-oro">#41 Argolla </h3>
+                        <p class="producto-desc">Argolla de Plata  Elegante </p>
+                        <p class="producto-precio texto-oro">Lps.500</p>
+                    </div>
+                    <a href="https://wa.me/50433597430?text=Hola! Me interesa la Argolla  #41" class="btn-pedido">
+                        <i class="fab fa-whatsapp"></i> Pedir Por WhatsApp
+                    </a>
+                </div>
+            </div>
+                </div>
+            </div>
+
+
+    <footer id="redes">
+        <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 20px;">Redes Sociales</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/modascastillo0?_r=MW5kd2tta2t6ajg3Zg==" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@modascastillo0?_r=1&_t=ZS-9619HIoE2SK" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/50433597430" style="color:var(--oro-solido); font-size: 2rem; margin: 15px;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top: 30px; opacity: 0.5; font-size: 0.7rem;">&copy; 2026 MODAS CASTILLO</p>
+    </footer>
+
+</body>
+</html>

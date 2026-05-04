@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modas Castillo | Luxury Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --oro-puro: linear-gradient(90deg, #b38b4d, #f9f1dc, #b38b4d, #ffebad, #b38b4d);
+            --oro-solido: #c5a059;
+            --negro-lujo: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #ffffff 0%, #f7e8c3 50%, #d4af37 100%);
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro-lujo);
+            overflow-x: hidden;
+        }
+
+        /* --- DORADO ANIMADO --- */
+        .texto-oro {
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brilloOro 3s linear infinite;
+        }
+
+        @keyframes brilloOro {
+            to { background-position: 200% center; }
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.98);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--oro-solido);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { color: var(--oro-solido); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-circular {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            border: 6px double var(--oro-solido);
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 50px rgba(197, 160, 89, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .main-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENEDORES Y GRID --- */
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.8rem;
+            margin: 80px 0 40px;
+        }
+
+        .container { padding: 0 8% 100px; }
+
+        .grid-luxury {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        /* --- ESTILO DE TARJETA ÚNICO --- */
+        .card-luxury {
+            position: relative;
+            background: var(--negro-lujo);
+            border-radius: 40px 0 40px 0;
+            overflow: hidden;
+            border: 2px solid var(--oro-solido);
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .card-luxury:hover {
+            transform: translateY(-10px);
+            box-shadow: 15px 15px 0px var(--oro-solido);
+        }
+
+        .card-luxury img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: 0.5s;
+        }
+
+        .card-luxury:hover img { opacity: 1; }
+
+        .overlay-luxury {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+        }
+
+        /* --- BOTONES --- */
+        .btn-gold {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--oro-puro);
+            background-size: 200% auto;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: 0.5s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold:hover {
+            background-position: right center;
+            transform: scale(1.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--negro-lujo);
+            color: white;
+            padding: 80px 10% 40px;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ COMPLETO -->
+    <nav>
+        <img src="logo.png" alt="Logo" style="height: 50px; border-radius: 50%; border: 1px solid var(--oro-solido);">
+        <div class="nav-links">
+            <a href="/index.html">Inicio</a>
+            <a href="/cartera.html">Carteras</a>
+            <a href="/Joyeria.html">Joyeria</a>
+            <a href="/Perfumes.html">Perfumeria</a>
+            <a href="/contacto.html">Redes Sociales</a>
+        </div>
+    </nav>
+
+   
+    <!-- SECCIÓN REDES SOCIALES -->
+    <div class="container" id="redes">
+        <h2 class="section-title texto-oro">Nuestras Redes</h2>
+        <div class="grid-luxury">
+            <div class="card-luxury" style="padding: 40px 20px;">
+                <i class="fab fa-instagram texto-oro" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                <h3 class="main-title" style="font-size: 1.2rem;"><span style="color:white">IG</span> <span class="texto-oro">Castillo</span></h3>
+                <a href="https://www.instagram.com/modascastillo0?_r=MW5kd2tta2t6ajg3Zg==" class="btn-gold">Seguir</a>
+            </div>
+            <div class="card-luxury" style="padding: 40px 20px;">
+                <i class="fab fa-tiktok texto-oro" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                <h3 class="main-title" style="font-size: 1.2rem;"><span style="color:white">TT</span> <span class="texto-oro">Castillo</span></h3>
+                <a href="https://www.tiktok.com/@modascastillo0?_r=1&_t=ZS-9619HIoE2SK" class="btn-gold">Ver</a>
+            </div>
+            <div class="card-luxury" style="padding: 40px 20px;">
+                <i class="fab fa-whatsapp texto-oro" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                <h3 class="main-title" style="font-size: 1.2rem;"><span style="color:white">WA</span> <span class="texto-oro">Directo</span></h3>
+                <a href="https://wa.me/50433597430" class="btn-gold">Chat</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2 class="texto-oro" style="font-family: 'Cinzel Decorative'; margin-bottom: 20px;">MODAS CASTILLO</h2>
+        <p style="opacity: 0.5; letter-spacing: 5px; font-size: 0.7rem;">&copy; 2026 EXCLUSIVIDAD Y ARTE</p>
+    </footer>
+
+</body>
+</html>
